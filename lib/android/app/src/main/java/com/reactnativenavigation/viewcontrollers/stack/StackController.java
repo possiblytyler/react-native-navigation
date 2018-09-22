@@ -1,12 +1,14 @@
 package com.reactnativenavigation.viewcontrollers.stack;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.RelativeLayout;
 
 import com.reactnativenavigation.anim.NavigationAnimator;
@@ -129,7 +131,17 @@ public class StackController extends ParentController<StackLayout> {
         presenter.onChildDestroyed(child);
     }
 
+    public void closeKeyboard() {
+        try {
+
+            InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {   }
+    }
+
     public void push(ViewController child, CommandListener listener) {
+
+        this.closeKeyboard();
         final ViewController toRemove = stack.peek();
         backButtonHelper.addToPushedChild(child);
         child.setParentController(this);
@@ -195,6 +207,8 @@ public class StackController extends ParentController<StackLayout> {
             listener.onError("Nothing to pop");
             return;
         }
+
+        this.closeKeyboard();
 
         final ViewController disappearing = stack.pop();
         final ViewController appearing = stack.peek();
@@ -282,8 +296,10 @@ public class StackController extends ParentController<StackLayout> {
         if (canPop()) {
             pop(Options.EMPTY, listener);
             return true;
+        } else {
+            getActivity().moveTaskToBack(true);
+            return true;
         }
-        return false;
     }
 
     @VisibleForTesting()
