@@ -10,7 +10,7 @@ public class NavigationReactInitializer implements ReactInstanceManager.ReactIns
 
 	private final ReactInstanceManager reactInstanceManager;
 	private final DevPermissionRequest devPermissionRequest;
-	private boolean waitingForAppLaunchEvent = true;
+	public boolean waitingForAppLaunchEvent = true;
 
 	public NavigationReactInitializer(ReactInstanceManager reactInstanceManager, boolean isDebug) {
 		this.reactInstanceManager = reactInstanceManager;

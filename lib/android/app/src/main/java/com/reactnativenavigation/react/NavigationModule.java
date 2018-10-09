@@ -88,6 +88,10 @@ public class NavigationModule extends ReactContextBaseJavaModule {
         });
 	}
 
+	@ReactMethod public void  isNavReady ( Promise promise ) {
+		promise.resolve(!NavigationApplication.instance.getReactGateway().initializer.waitingForAppLaunchEvent);
+	}
+
     @ReactMethod
     public void setStackRoot(String commandId, String onComponentId, ReadableMap rawLayoutTree, Promise promise) {
         final LayoutNode layoutTree = LayoutNodeParser.parse(JSONParser.parse(rawLayoutTree));

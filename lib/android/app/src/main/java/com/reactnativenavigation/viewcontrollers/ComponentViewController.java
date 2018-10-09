@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.reactnativenavigation.parse.Options;
 import com.reactnativenavigation.presentation.OptionsPresenter;
+import com.reactnativenavigation.utils.CommandListener;
 import com.reactnativenavigation.views.ComponentLayout;
 import com.reactnativenavigation.views.ReactComponent;
 
@@ -26,6 +27,12 @@ public class ComponentViewController extends ChildController<ComponentLayout> {
         this.viewCreator = viewCreator;
     }
 
+
+    @Override
+    public boolean handleBack(CommandListener listener) {
+        this.onViewDisappear();
+        return true;
+    }
     @Override
     public void onViewAppeared() {
         super.onViewAppeared();

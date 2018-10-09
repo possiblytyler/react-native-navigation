@@ -14,7 +14,7 @@ import java.util.List;
 public class ReactGateway {
 
 	private final ReactNativeHost host;
-	private final NavigationReactInitializer initializer;
+	public final NavigationReactInitializer initializer;
 	private final JsDevReloadHandler jsDevReloadHandler;
 
     @SuppressWarnings("unused")

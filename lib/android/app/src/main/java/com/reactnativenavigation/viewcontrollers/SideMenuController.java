@@ -13,6 +13,7 @@ import com.reactnativenavigation.parse.Options;
 import com.reactnativenavigation.parse.SideMenuOptions;
 import com.reactnativenavigation.presentation.OptionsPresenter;
 import com.reactnativenavigation.presentation.SideMenuOptionsPresenter;
+import com.reactnativenavigation.utils.CommandListener;
 import com.reactnativenavigation.views.Component;
 
 import java.util.ArrayList;
@@ -38,6 +39,12 @@ public class SideMenuController extends ParentController<DrawerLayout> {
             return rightController;
         }
         return centerController;
+    }
+
+    @Override
+    public boolean handleBack(CommandListener listener) {
+	    //Ideally this would close the side menu, but ...
+        return centerController.handleBack(listener);
     }
 
     @NonNull
