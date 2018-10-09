@@ -2,7 +2,7 @@ AndroidE2E/
 coverage/
 e2e/
 integration/
-playground/
+#playground/
 scripts/
 .travis.yml
 wallaby.js
