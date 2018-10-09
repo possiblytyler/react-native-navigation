@@ -220,14 +220,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		D8AFADBB1BEE6F3F00A4592D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
 				50C5FD8320D7D6DD00F1EA8A /* RNNBridgeManagerDelegate.h in CopyFiles */,
 				50C5FD8220D7D6D600F1EA8A /* ReactNativeNavigation.h in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
