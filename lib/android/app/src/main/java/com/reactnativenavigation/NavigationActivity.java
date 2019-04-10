@@ -73,7 +73,9 @@ public class NavigationActivity extends AppCompatActivity implements DefaultHard
     @Override
     public void invokeDefaultOnBackPressed() {
         if (!navigator.handleBack(new CommandListenerAdapter())) {
-            super.onBackPressed();
+          //super.onBackPressed();
+          //This change prevents the app from backgrounding when backed out of
+          this.moveTaskToBack(true);
         }
     }
 
